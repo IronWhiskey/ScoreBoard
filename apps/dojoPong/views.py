@@ -241,6 +241,8 @@ def delete_player(request, id):
     player.delete()
     return redirect('/league/edit')
 
+
+
 def render_scoreboard(request, id):
     if "user_id" not in request.session:
         return redirect('/main')
@@ -311,5 +313,74 @@ def log_game(request):
 # # function that logs out a user
 def logout(request):
     del request.session['user_id']
+    if 'league_id' in request.session:
+        del request.session['league_id']
     return redirect('/main')
 
+
+
+
+# JavaScript functionality for toggleing the game edit form into view
+# function needs to  be called within the <td> tag with
+# onclick="toggle_form( '{{game.id}}' )
+
+
+# <script>
+#         $(document).ready(function(){
+            
+
+#         })
+        
+
+#         function toggle_form(game) {
+#             console.log('clicked');
+#             var x = document.getElementById(game)
+#             if (x.style.display === "none") {
+#                 x.style.display = "block";
+#             }
+#             else {
+#                 x.style.display = "none";
+#             }
+#         }
+
+#     </script>
+
+
+# form rendered into view
+
+# <form action='/update_game/{{game.id}}' style="display: block" method='post'>
+#     {% csrf_token %}
+#     <table class='table'>
+#         <tr>
+#             <td><p>Winner:</p></td>
+#             <td>
+#                 <select class="form-control" name='winner'>
+#                     <option><p>{{game.winner.moniker}}</p></option>
+#                     {% for player in players %}
+#                         <option value="{{player.id}}"><p>{{player.moniker}}</p></option>
+#                     {% endfor %}
+#                 </select>
+#             </td>
+#             <td size='5'><p>Score:</p></td>
+#             <td><p><input type='text' name='winner_points' size='5' value={{game.winner_points}}></p></td>
+#         </tr>
+#         <tr>
+#             <td><p>Loser:</p></td>
+#             <td>
+#                 <select class="form-control" name='loser'>
+#                     <option><p>{{game.loser.moniker}}</p></option>
+#                     {% for player in players %}
+#                         <option value="{{player.id}}"><p>{{player.moniker}}</p></option>
+#                     {% endfor %}
+#                 </select>
+#             </td>
+#             <td size='5'><p>Score:</p></td>
+#             <td><p><input type='text' name='loser_points' size='5' value={{game.loser_points}}></p></td>
+#         </tr>
+#         <tr>
+#             <td></td>
+#             <td></td>
+#             <td colspan="2"><p><input class="btn btn-primary btn-sm" type='submit' id='submit' value='Update Game' class='buttons'></p></td>
+#         </tr>
+#     </table>
+# </form>

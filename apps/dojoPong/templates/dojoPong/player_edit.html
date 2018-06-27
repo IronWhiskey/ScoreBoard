@@ -17,21 +17,9 @@
     <script>
         $(document).ready(function(){
             
-            // $( ".lost_games" ).click(function() {
-            //     $( "#games_form" ).toggle();
-            //     // alert( "Handler for .click() called." );
-            //     });
-
-            // $( ".won_games" ).click(function() {
-            //     $( "#games_form" ).toggle();
-            //     // alert( "Handler for .click() called." );
-            //     });
 
         })
         
-        // $( "button" ).click(function() {
-        //     $( this ).slideUp();
-        // });
 
         function toggle_form(game) {
             console.log('clicked');
@@ -122,55 +110,20 @@
                         {% for game in games %}
                             <tr class='won_games' >
                                 {% if game.winner == player %}
-                                <td><button class="btn btn-primary btn-sm" onclick="toggle_form( '{{game.id}}' )">won</button></td>
+                                <td><button class="btn btn-primary btn-sm">won</button></td>
                                 <td>{{game.created_at|date:'M d, Y' }}</td>
                                 <td>{{game.winner_points}}</td>
                                 <td>{{game.loser.name}}</td>
                                 <td>{{game.loser_points}}</td>
                                 {% else %}
-                                <td><button class="btn btn-primary btn-sm" onclick="toggle_form( '{{game.id}}' )">loss</button></td>
+                                <td><button class="btn btn-primary btn-sm" >loss</button></td>
                                 <td>{{ game.created_at|date:'M d, Y' }}</td>
                                 <td>{{game.loser_points}}</td>
                                 <td>{{game.winner.name}}</td>
                                 <td>{{game.winner_points}}</td>
                                 {% endif %}  
                                 <td id='{{game.id}}' style="display: none;">
-                                    <!-- <form action='/update_game/{{game.id}}' style="display: block" method='post'>
-                                        {% csrf_token %}
-                                        <table class='table'>
-                                            <tr>
-                                                <td><p>Winner:</p></td>
-                                                <td>
-                                                    <select class="form-control" name='winner'>
-                                                        <option><p>{{game.winner.moniker}}</p></option>
-                                                        {% for player in players %}
-                                                            <option value="{{player.id}}"><p>{{player.moniker}}</p></option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </td>
-                                                <td size='5'><p>Score:</p></td>
-                                                <td><p><input type='text' name='winner_points' size='5' value={{game.winner_points}}></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td><p>Loser:</p></td>
-                                                <td>
-                                                    <select class="form-control" name='loser'>
-                                                        <option><p>{{game.loser.moniker}}</p></option>
-                                                        {% for player in players %}
-                                                            <option value="{{player.id}}"><p>{{player.moniker}}</p></option>
-                                                        {% endfor %}
-                                                    </select>
-                                                </td>
-                                                <td size='5'><p>Score:</p></td>
-                                                <td><p><input type='text' name='loser_points' size='5' value={{game.loser_points}}></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td colspan="2"><p><input class="btn btn-primary btn-sm" type='submit' id='submit' value='Update Game' class='buttons'></p></td>
-                                            </tr>
-                                        </table>
-                                    </form> -->
+                                   
                                 </td>
                             </tr>
                         {% endfor %}
