@@ -1,0 +1,53 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.buttons{
+    padding: 3px;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+body{
+    background-image: url("table_50.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#header{
+    text-align: center;
+    font-family: 'Righteous', cursive;   
+}
+#header h1{
+    font-size: 28pt;
+}
+#header a{
+    font-size: 15pt;
+    color: rgb(58, 56, 56);
+}
+
+
+
+        #edit_player{
+            font-size: 14pt;
+            font-family: 'Righteous', cursive, black;
+            border: solid black 2px;
+            border-radius: 5px;
+            padding: 10px;
+            /* vertical-align: top; */
+        }
+
+        
+
+#game_info {
+    font-size: 14pt;
+    font-family: 'Righteous', cursive, black;
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#game_info p{
+    font-size: 10pt;
+}

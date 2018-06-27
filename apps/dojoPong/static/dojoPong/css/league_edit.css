@@ -1,0 +1,58 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.buttons{
+    padding: 3px;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+body{
+    background-image: url("table_50.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#header{
+    text-align: center;
+    font-family: 'Righteous', cursive;   
+}
+#header h1{
+    font-size: 28pt;
+}
+#header a{
+    font-size: 15pt;
+    color: rgb(58, 56, 56);
+}
+
+
+
+        #league_info{
+            font-size: 14pt;
+            font-family: 'Righteous', cursive, black;
+            border: solid black 2px;
+            border-radius: 5px;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        
+
+#players {
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 30px;
+}
+#players h3{
+    text-align: center;
+    font-size: 23;
+}
+#players h2{
+    font-family: 'Righteous', cursive;
+}
+#players table *{
+    font-family: 'Righteous', cursive;
+    font-size: 14pt;    
+}

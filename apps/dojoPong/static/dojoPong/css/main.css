@@ -1,0 +1,124 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url("table_50.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#wrapper{
+    padding-top: 1%;
+    /* margin-right: 2%; */
+    /* margin-left: 2%; */
+    padding-bottom: 1%;
+}
+
+
+.buttons{
+    padding: 3px;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.messages{
+    color: rgba(66, 52, 121, 0.925);
+    font-size: 15pt;
+    font-family: 'Sigmar One', cursive;
+
+}
+
+
+#notice{
+    font-size: 8pt;
+}
+
+
+#header{
+    text-align: center;
+    margin-bottom: 2%;
+    font-family: 'Sigmar One', cursive;
+}
+
+#header2{
+    text-align: center;
+    margin-bottom: 2%;
+    font-family: 'Sigmar One', cursive;
+    font-size: 14pt;
+}
+
+h3{
+    text-align: center;
+}
+
+                        #row1{
+                            margin-bottom: 20px;
+                        }
+
+                        #register{
+                            margin-bottom: 20px;
+                            border: solid black 2px;
+                            border-radius: 5px;
+                            padding: 10px;
+                        }
+                        #register *{
+                            margin: 0px auto;
+                            margin-bottom: 5px;
+                            font-family: 'Sigmar One', cursive;
+                        }
+                        #register form table tr{
+                            column-width: 90px;
+                        }
+                        #register form table tr td input{
+                            width: 90pt;
+                        }
+
+
+
+
+
+                        #login{
+                            border: solid black 2px;
+                            border-radius: 5px;
+                            padding: 10px;
+                        }
+                        #login *{
+                            margin: 0px auto;
+                            margin-bottom: 5px;
+                            font-family: 'Sigmar One', cursive;
+                        }
+                        #login form table tr{
+                            column-width: 90px;
+                        }
+                        #login form table tr td input{
+                            width: 90pt;
+                        }
+
+
+
+#players{
+    /* margin-left: 15px; */
+    /* margin-right: 15px; */
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 30px;
+    margin-bottom: 2%;
+}
+#players table *{
+    column-width: 140px;
+    font-family: 'Righteous', cursive;
+    font-size: 14pt;    
+}
+#players h2{
+    font-family: 'Righteous', cursive;
+    text-align: center;
+}
+
+
+.footer{
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    color: rgb(11, 94, 100);
+}

@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Register/Login</title>
+        <meta charset='UTF-8'>
+        {% load static %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'dojoPong/css/scoreboard.css' %}" media="screen" title="no title"  charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Righteous|Sigmar+One" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id='wrapper' class='container'>
+
+            <div id='header' class='row'>
+                <div class='col-sm-5'>
+                    <h1>{{league.name}} Score Board</h1>
+                </div>
+                <div class='col-sm-5 col-md-offset-2'>
+                    <button type="button" class="btn-warning btn-lg"><a style="text-decoration: none" href="/logout">Main</a></button>
+                </div>
+            </div>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+
+
+            <div class='row' id='top_row'>
+                <div id='league_info' class='col-md-5'>
+                    <table class='table'>
+                        <tr>
+                            <td>League:</td>
+                            <td>{{league.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td>{{league.city}}</td>
+                        </tr>
+                        {% if league.state != None %}
+                            <tr>
+                                <td>State:</td>
+                                <td>{{league.state}}</td>
+                            </tr>
+                        {% endif %}
+                        {% if league.location != 'Enter location or address info...' %}
+                            <tr>
+                                <td>Location:</td>
+                                <td>{{league.location}}</td>
+                            </tr>
+                        {% endif %}
+                        {% if league.rules %}
+                            <tr>
+                                <td>League Rules:</td>
+                                <td>{{league.rules}}</td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <td>League Admin:</td>
+                            <td>{{u.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date Established:</td>
+                            <td>{{league.created_at|date:'M d, Y'}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class='col-md-5 col-md-offset-2'>
+                    
+                    <div class='row' id='leaderboard' >
+                        <h2>----Top 3 Leaderboard----</h2>
+                        <div id='paddles'>
+                            <img src="/static/dojoPong/paddle4.png" alt="Smiley face" height="100">
+                            <img src="/static/dojoPong/paddle8.png" alt="Smiley face" height="100">
+                            <img src="/static/dojoPong/paddle10.png" alt="Smiley face" height="100">
+                        </div>
+                        <table class='table table-hover'>
+                            <tr>
+                                <th>name</th>
+                                <th>wins</th>
+                                <th>losses</th>
+                            </tr>
+                            {% for player in top_three %}
+                            <tr>
+                                <td>{{ player.moniker }}</td>
+                                <td>{{ player.record.wins }}</td>
+                                <td>{{ player.record.losses }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    
+                    <div class='row' id='players'>
+                        <h2>---{{league.name}} Players---</h2>
+                        <table class='table table-hover'>
+                            <tr>
+                                <th>username</th>
+                                <th>wins</th>
+                                <th>losses</th>
+                            </tr>
+        
+                            {% for player in players %}
+                            <tr>
+                                <td>{{ player.moniker }}</td>
+                                <td>{{ player.record.wins }}</td>
+                                <td>{{ player.record.losses }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+                
+        </div>
+       
+    </body>
+
+</html>

@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Register/Login</title>
+        <meta charset='UTF-8'>
+        {% load static %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'dojoPong/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Righteous|Sigmar+One" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id='wrapper' class='container'>
+
+            <h1 id='header'>Whiskey League Score Board</h1>
+
+            <h3 class='row' id='header2'>
+                <ul style="list-style-type:none">
+                    <li>Create a League</li>
+                    <li>Add Players</li>
+                    <li>Keep Score</li>
+                </ul>
+            </h3>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        
+            <div id='row1' class='row'>
+                <div id='register' class='col-sm-5'>
+                    <form action='/register' method='post'>
+                        {% csrf_token %}
+                        <h3>Register New League</h3>
+                        <table>
+                            <tr>
+                                <td><label>Admin Name:</label></td>
+                                <td><input class="form-control input-sm" type='text' name='name'></td>
+                            </tr>
+                            <tr>
+                                <td><label>Admin Moniker:</label></td>
+                                <td><input class="form-control input-sm" type='text' name='moniker'></td>
+                            </tr>
+                            <tr>
+                                <td><label>League Name:</label></td>
+                                <td><input class="form-control input-sm" type='text' name='league_name'></td>
+                            </tr>
+                            <tr>
+                                <td><label>League City:</label></td>
+                                <td><input class="form-control input-sm" type='text' name='league_city'></td>
+                            </tr>
+                            <tr>
+                                <td><label>Password:</label></td>
+                                <td><input class="form-control input-sm" type='password' name='password'></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><p id='notice'>*Password should be at least 8 characters</p></td>
+                            </tr>
+                            <tr>
+                                <td><label>Confrim password:</label></td>
+                                <td><input class="form-control input-sm" type='password' name='confirmPass'></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit" class="btn-info btn-sm">Register</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                
+                
+                <div id='login' class='col-sm-5 col-md-offset-2'>
+                    <form action='/login' method='post'>
+                        {% csrf_token %}
+                        <h3>Administer League Login</h3>
+                        <table>
+                            <tr>
+                                <td><label>Moniker:</label></td>
+                                <td><input class="form-control input-sm" type='text' name='moniker'></td>
+                            </tr>
+                            <tr>
+                                <td><label>Password:</label></td>
+                                <td><input class="form-control input-sm" type='password' name='password'></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit" class="btn-info btn-sm">Login</button></td>
+                            </tr>
+                        </table>
+                    </form>
+
+                </div>
+            </div>
+            <!-- <p class='footer'>Developing new code for a project to meet a deadline - fun</p>
+            <p class='footer'>Writing an algorithm to solve a problem in an unknown language - challenging</p>
+            <p class='footer'>Having a Eureka moment while playing ping pong - priceless</p> -->
+
+            <div id='row2' class='row'>
+                <div id='players' class='col-sm-12'>
+                    <h2>-------Leagues-------</h2>
+                    <table class="table table-hover">
+                        <tr>
+                            <th>League Name</th>
+                            <th>State</th>
+                            <th>City</th>
+                        </tr>
+                        {% for league in leagues %}
+                        <tr>    
+                            <td><a href="/league/scoreboard/{{league.id}}" style="text-decoration: none">{{ league.name }}</a></td>
+                            <td>{{ league.state }}</td>
+                            <td>{{ league.city }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+            <p class="footer">Developed by IronWhiskey, because everything tastes better with whiskey</p>
+            <p class="footer">Developed with Python, Django, SQLlite, Bootstrap, HTML, CSS, & Whiskey Magic</p>
+        </div>
+       
+    </body>
+
+</html>
