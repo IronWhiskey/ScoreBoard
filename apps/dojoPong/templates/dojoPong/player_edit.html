@@ -135,7 +135,7 @@
                                 <td>{{game.winner_points}}</td>
                                 {% endif %}  
                                 <td id='{{game.id}}' style="display: none;">
-                                    <form action='/update_game/{{game.id}}' style="display: block" method='post'>
+                                    <!-- <form action='/update_game/{{game.id}}' style="display: block" method='post'>
                                         {% csrf_token %}
                                         <table class='table'>
                                             <tr>
@@ -170,7 +170,7 @@
                                                 <td colspan="2"><p><input class="btn btn-primary btn-sm" type='submit' id='submit' value='Update Game' class='buttons'></p></td>
                                             </tr>
                                         </table>
-                                    </form>
+                                    </form> -->
                                 </td>
                             </tr>
                         {% endfor %}
